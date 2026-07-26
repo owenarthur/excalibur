@@ -2,7 +2,8 @@
 name: "cease_working"
 description: "Request cancellation for a background working."
 ---
-Placeholder cast manifest for the Excalibur scaffold.
+Request cancellation of one durable working.
 
-In a full implementation, each cast lives in its own folder under `grimoire/spellbooks/<book>/<cast>/`.
-This scaffold keeps only the descriptive `spell.md` layer and omits handlers and runtime code.
+Cancellation is a request until the living claimant acknowledges that the work stopped. Do not report a stopped runner merely because the request was recorded.
+
+This scaffold keeps only the descriptive `spell.md` layer and omits the handler and runtime code.

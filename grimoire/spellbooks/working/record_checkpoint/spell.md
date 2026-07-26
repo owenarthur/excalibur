@@ -2,7 +2,8 @@
 name: "record_checkpoint"
 description: "Write an internal checkpoint into the shared daily thread without sending a user-facing message."
 ---
-Placeholder cast manifest for the Excalibur scaffold.
+Write one bounded checkpoint into the working's durable record and the shared daily thread.
 
-In a full implementation, each cast lives in its own folder under `grimoire/spellbooks/<book>/<cast>/`.
-This scaffold keeps only the descriptive `spell.md` layer and omits handlers and runtime code.
+Only the living claimant should advance a working. A checkpoint reports state; it does not grant authority or prove completion.
+
+This scaffold keeps only the descriptive `spell.md` layer and omits the handler and runtime code.

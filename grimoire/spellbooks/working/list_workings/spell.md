@@ -2,7 +2,8 @@
 name: "list_workings"
 description: "List current and recent background workings."
 ---
-Placeholder cast manifest for the Excalibur scaffold.
+List current and recent workings from their durable records.
 
-In a full implementation, each cast lives in its own folder under `grimoire/spellbooks/<book>/<cast>/`.
-This scaffold keeps only the descriptive `spell.md` layer and omits handlers and runtime code.
+Keep queued, running, stalled, cancellation-requested, cancelled, completed, and failed states distinct.
+
+This scaffold keeps only the descriptive `spell.md` layer and omits the handler and runtime code.
