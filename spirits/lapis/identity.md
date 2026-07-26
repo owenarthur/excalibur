@@ -26,4 +26,6 @@ This is the minimal contract between the runtime and the scaffold's primary spir
 - transport env var names
 - charge defaults
 
+When the scaffold is invoked, extend this contract with the exact roots Lapis may read or alter and the exposure rules of the chosen transport. Do not infer authority from the repository root, the host account, or a human-facing interface.
+
 When instantiated for real, Lapis should have at least one foreground transport so the summoner can talk to the orchestrator spirit directly. Foreground turns should be mirrored into `vessel/state/lapis/conversations/`.

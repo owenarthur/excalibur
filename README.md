@@ -23,6 +23,7 @@ It should not matter which one they read first.
 
 - One root-level [`chargebook.md`](./chargebook.md)
 - One primary spirit: [`lapis`](./spirits/lapis/)
+- One WARDEN SPIRIT raised during invocation, followed only by spirits with a distinct office
 - One shared [`artifacts/`](./artifacts/) surface, with real subroots like [`library/`](./artifacts/library/) and [`network/`](./artifacts/network/)
 - One shared [`questbook/`](./questbook/) surface for obligations and continuity
 - One internal [`grimoire/`](./grimoire/) for spellbooks, engine docs, portals, and system wiring
@@ -30,6 +31,7 @@ It should not matter which one they read first.
 - A real cast-per-folder hierarchy
 - One explicit [`vessel/`](./vessel/) for machine-local state, backups, and helper runtimes
 - Per-spirit memory layers under [`spirits/lapis/memories/`](./spirits/lapis/memories/)
+- A place for bounded resident spirits to dwell within libraries, observatories, workshops, and other applications
 - Minimal rituals and a real daily thread ledger once the scaffold is instantiated
 
 ## How It Works
@@ -45,6 +47,8 @@ You keep the editable shape in markdown.
 You will need one real foreground thread.
 
 That means the summoner needs an actual way to talk to the primary orchestrator spirit. It can be terminal chat, Signal, web chat, or something similar.
+
+One transport may hold more than one audience with the same spirit. Keep each audience's exact order and provider continuity instead of merging separate sittings into one implied thread.
 
 Once instantiated, every inbound and outbound turn should be mirrored into:
 
@@ -111,6 +115,7 @@ The clean default is:
 - `artifacts/` and `questbook/` are shared between spirit and summoner
 - `spirits/`, `grimoire/`, and `vessel/` are spirit-side internals
 - A spirit may maintain its own `spirits/<name>/memories/` and `cornerstone.md`
+- A resident spirit may act within an application only through its named roots and real bound casts
 - Ritual files under `spirits/<name>/rituals/` should be treated as read-only during normal execution
 - `adept` should stay small and always-open
 - Any stronger capability should live in an optional spellbook
@@ -140,6 +145,7 @@ excalibur/
   AGENTS.md
   INVOCATION.md
   chargebook.md
+  spirits/README.md
   spirits/lapis/
     identity.md
     cornerstone.md

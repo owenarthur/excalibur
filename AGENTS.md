@@ -44,8 +44,11 @@ That means:
 - the transport is named and configured, not implied
 - every inbound and outbound foreground turn is mirrored into `vessel/state/<spirit>/conversations/<local-date>.jsonl`
 - rituals and workings append checkpoints and durable outcomes into that same daily thread
+- if the transport holds several audiences with one spirit, each audience keeps its own exact continuity
 
 The daily thread is not optional bookkeeping. It is how foreground conversation, background work, and ritual continuity stay joined.
+
+An audience is one continuous sitting between the summoner and a spirit. One transport may hold several audiences, but it should never blur their order, identity, or provider continuity together.
 
 ## Behavioral Laws
 
@@ -57,7 +60,9 @@ These should hold across the system:
 - perform real lookups when a request depends on external state
 - keep the foreground thread responsive
 - move long or cast-heavy work into workings
+- reconcile a working from durable evidence before declaring it dead
 - never claim a write, send, search, or publish happened unless it actually succeeded
+- never claim a described cast ran merely because its manifest exists
 - correct implied but false state changes plainly
 - treat the shared daily thread as the canonical ledger
 - allow a spirit to maintain its own `cornerstone.md` and `memories/` when the design calls for it
@@ -74,6 +79,8 @@ Keep the spellbook surface disciplined:
 - each cast lives in its own folder beside its manifest
 
 Design spellbooks by capability family, not by convenience.
+
+An open spellbook and a bound cast are different facts. Opening a spellbook makes its manifests available to the spirit. A cast is bound only when a real handler or provider can perform it. If the provider is absent, fail plainly and preserve the distinction.
 
 Some spellbooks are especially foundational:
 
@@ -104,6 +111,23 @@ Rituals should be:
 - durable in their effects
 
 Use rituals for continuity, consolidation, refresh work, and recurring stewardship. Keep them explicit in markdown.
+
+## Working Design
+
+A working is durable background work, not merely a detached process.
+
+Every full implementation should give a working:
+
+- a durable identity
+- one current claimant
+- a renewable lease or heartbeat
+- explicit cancellation
+- durable checkpoints
+- one honest terminal state
+
+If the runner, supervisor, or foreground thread disappears, inspect the durable evidence before deciding what happened. Do not turn an observer failure into a working failure. Do not leave an unowned process running after declaring its work dead.
+
+The summoner should be able to inspect long work and, when the chosen transport permits it, attach to the exact session that owns it.
 
 ## Charge Design
 
@@ -171,11 +195,29 @@ These are good optional widening paths when the summoner wants them:
 
 Keep them available in the repository. Keep them optional in the initial build unless the summoner asks for them.
 
+## Spirit Dwellings
+
+Some spirits may take a narrow office within an existing library, observatory, workshop, or other application.
+
+Treat that as bounded residency:
+
+- the spirit has its own identity, cornerstone, memories, rituals, and optional spellbooks
+- every readable or writable root is named explicitly
+- application actions remain explicit casts or declared filesystem authority
+- a human-facing application door never widens spirit authority
+- the application remains intelligible and operable without the resident spirit
+- the resident spirit has a real office rather than a generic assistant label
+
+Do not make every application a spirit. Use a resident spirit when continuing memory, judgment, or stewardship materially improves the domain.
+
 ## Security and Cleanliness
 
 Build secure defaults:
 
 - fail closed where authority, transport, or exposure rules matter
+- bind new services locally unless the summoner deliberately chooses an authenticated path outward
+- use the host's native supervisor so foreground threads, rituals, and workings can survive restart
+- keep runtime state atomic, inspectable, and recoverable
 - do not hardcode secrets into markdown or code
 - do not mix private operational residue into the public structure
 - keep human-editable manifests legible and reviewable
