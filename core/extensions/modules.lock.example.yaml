@@ -1,0 +1,20 @@
+apiVersion: extensions.excalibur/v1alpha1
+kind: ModuleLock
+base:
+  revision: replace-with-a-pinned-excalibur-revision
+  contentDigest: "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+modules:
+  - id: reference-library-bridge
+    version: 1.0.0
+    sourceReference: "https://example.invalid/reference-library-bridge.git"
+    revision: "0000000000000000000000000000000000000000"
+    contentDigest: "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+    acceptedContributions:
+      - spellbooks/reference-reading
+      - castHandlers/reference-reading-search
+      - services/reference-reader
+      - migrations/index-v1
+      - conformanceTests/bridge-boundary
+      - requestedRealmRoots/reference-notes
+      - externalApplicationBridges/catalog
+    authorityDecision: replace-with-an-explicit-local-or-moon-decision

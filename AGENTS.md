@@ -1,197 +1,349 @@
 # AGENTS.md
 
-This file is the starter contract for building a new Excalibur-like system from this repository.
+This file is the starter contract for building a new Excalibur-like system from
+this repository.
 
-Read [`INVOCATION.md`](./INVOCATION.md) first. Use this file as the operating standard while the system is being instantiated and extended.
+Read [`INVOCATION.md`](./INVOCATION.md) as well. Preserve the repository's
+literary register, but treat every security and state claim literally.
 
 ## Core Shape
 
 Keep the system simple and explicit:
 
-- one primary spirit at first: `lapis`
-- one top-level `spirits/` tree for spirit identity, prompts, rituals, and memories
-- one top-level `artifacts/` tree for durable outputs
-- one top-level `questbook/` tree for obligations and continuity
-- one internal `grimoire/` for spellbooks, runtime code stubs, and summoner docs
-- one universal always-open spellbook in `grimoire/spellbooks/adept/`
-- optional spellbooks under `grimoire/spellbooks/<book>/`
-- one cast per folder at `grimoire/spellbooks/<book>/<cast>/spell.md`
-- one shared charge ledger at `chargebook.md`
-- one top-level `vessel/` tree for machine-local operation
+- one primary spirit at first: `lapis`, unless the summoner names another
+- root `README.md`, `AGENTS.md`, and `INVOCATION.md` as the human and agent
+  entrance
+- one `core/` tree for reviewed source and owner-controlled authority
+- one `realm/` tree for spirit-controlled durable context and outputs
+- one `runtime/` tree for private machine-local state
+- identities and rituals under
+  `core/authority/spirits/<name>/`, with memories under
+  `realm/memories/<name>/`
+- one shared charge ledger at `core/authority/chargebook.md`
+- one universal spellbook at `core/spellbooks/adept/`
+- optional capability families under `core/spellbooks/<book>/`
+- one cast manifest per `core/spellbooks/<book>/<cast>/spell.md`
+- portals under `core/portals/` and portable supervisor law under
+  `core/services/`
+- one stable external module seam under `core/extensions/`
+- durable projects, research, sites, artifacts, and an optional questbook
+  under `realm/`
 
-Do not flatten the hierarchy. The nested spellbook layout is part of the design.
+Do not flatten the hierarchy. The distinctions are part of the design.
+
+## Five Different Things
+
+Do not make one control plane pretend to be everything:
+
+- **audience** — a conversation, one continuous sitting
+- **project or realm** — durable context around an intention
+- **working** — bounded execution with custody
+- **artifact or deliverable** — the result made for review or use
+- **attention** — a review, decision, failure, approval, or intervention
+
+An audience may mention several projects. A project may produce many workings.
+A working may produce several deliverables. None of those relationships turns
+the conversation into a project or the executor into an office.
+
+Attention is not a generic notification stream. Create it only when judgment is
+actually needed.
+
+## Custody Boundaries
+
+Every real installation must separate:
+
+1. `core/` — reviewed source and owner-controlled authority;
+2. `realm/` — spirit-controlled durable worlds and outputs;
+3. `runtime/` — private machine state.
+
+The root entrance files describe those boundaries. The invocation may choose
+different absolute installation paths, but it must preserve the three roles
+and may not collapse one into another.
+
+A release may replace reviewed source and generated service material. It must
+preserve the realm, projects, artifacts, memories, runtime, credentials,
+conversation ledgers, and application data. Seed durable state once; never use
+a routine release to reseed it.
+
+Keep credentials outside the source and durable prose. The native supervisor
+may provide exact credential references to the exact process that needs them.
 
 ## Primary Spirit
 
-Use `lapis` as the primary orchestrator spirit unless the summoner explicitly wants a different starting shape.
+Use Lapis as the illustrative primary orchestrator unless the summoner chooses
+another name.
 
 The primary spirit should be:
 
 - responsive in the foreground
 - honest about state changes
-- explicit before and after casts
-- able to hand long work off to workings
+- explicit before and after consequential action
+- able to place long work into workings
+- bounded by exact roots and real casts
 
-Keep the primary spirit useful without making it overloaded.
+Do not burden the primary spirit with every durable office.
 
-## Foreground Thread
+## Foreground Audiences
 
-Every real system built from this scaffold needs an explicit foreground thread.
+Every installation needs one concrete foreground transport.
 
-That means:
+- Name and configure it; do not imply it.
+- Bind locally before deliberately publishing through an authenticated path.
+- Verify audience identity before a turn enters the engine.
+- Mirror every inbound and outbound turn into
+  `runtime/<spirit>/conversations/<local-date>.jsonl`.
+- Give each audience exact order and provider continuity.
+- Keep foreground conversation responsive while workings continue elsewhere.
 
-- the summoner has a concrete way to talk to the primary orchestrator spirit
-- the transport is named and configured, not implied
-- every inbound and outbound foreground turn is mirrored into `vessel/state/<spirit>/conversations/<local-date>.jsonl`
-- rituals and workings append checkpoints and durable outcomes into that same daily thread
-
-The daily thread is not optional bookkeeping. It is how foreground conversation, background work, and ritual continuity stay joined.
+The shared daily thread joins conversation, ritual continuity, and working
+outcomes. It does not turn them into one kind of object.
 
 ## Behavioral Laws
 
-These should hold across the system:
+- Answer the summoner before deeper work begins.
+- Acknowledge before a cast, emanation, working, or file change.
+- Report what actually happened after it lands.
+- Perform real lookups when a request depends on external state.
+- Never claim a write, send, search, publication, or notification succeeded
+  unless it did.
+- Never claim a cast ran merely because its manifest exists.
+- Reconcile durable evidence before declaring a working dead.
+- Treat ritual files as read-only during execution.
+- Keep attention concise and consequential.
 
-- answer the summoner before deeper work begins
-- acknowledge before a cast, emanation, working, or file change
-- report what actually happened after it lands
-- perform real lookups when a request depends on external state
-- keep the foreground thread responsive
-- move long or cast-heavy work into workings
-- never claim a write, send, search, or publish happened unless it actually succeeded
-- correct implied but false state changes plainly
-- treat the shared daily thread as the canonical ledger
-- allow a spirit to maintain its own `cornerstone.md` and `memories/` when the design calls for it
-- treat ritual files as read-only during execution
+## Spellbooks and Casts
 
-## Spellbook Design
+- `adept` is always open.
+- Other spellbooks are optional capability families.
+- A spirit advertises optional access through `available_spellbooks`.
+- Rituals may widen only through declared spellbooks.
+- Each cast lives in its own folder beside its manifest.
+- Design spellbooks by capability family, not convenience.
 
-Keep the spellbook surface disciplined:
+An open spellbook and a bound cast are different facts. A manifest makes a
+capability legible. Only a real handler or provider makes it callable. Missing
+bindings fail plainly.
 
-- `adept` is always open
-- all other capability families are optional spellbooks
-- a spirit advertises optional access through `available_spellbooks` in `identity.md`
-- rituals may widen through `additional_spellbooks` and preload through `open_spellbooks`
-- each cast lives in its own folder beside its manifest
+Human-facing controls do not bind casts and do not widen authority.
 
-Design spellbooks by capability family, not by convenience.
+## Workings
 
-Some spellbooks are especially foundational:
+A working is durable bounded execution, not merely a detached process.
 
-- `adept` carries orchestration, messaging, emanations, emergency halt, and ritual charge recovery
-- `artifact` is the durable output layer for reports, notes, drafts, guides, exports, and other work meant to outlive the current thread
-- `working` is where long or cast-heavy work should go
-- `portal` is the always-on surface primitive and should stay general rather than being tied to one specific device
+Every full implementation should give it:
 
-The artifact surface should also have an honest filesystem shape. A new system does not need every project-specific folder up front, but the shared generic roots should usually include:
+- a durable identity
+- a bounded purpose and declared deliverable
+- exact authority and writable roots
+- an explicit model or executor policy
+- one current claimant
+- a renewable lease or heartbeat
+- explicit cancellation
+- durable checkpoints
+- one honest terminal state
 
-- `artifacts/archive/`
-- `artifacts/library/`
-- `artifacts/media/`
-- `artifacts/network/`
-- `artifacts/notes/`
-- `artifacts/reports/`
-- `artifacts/research/`
+If a runner, supervisor, or observer disappears, inspect the durable evidence
+before deciding what happened. Do not turn an observer failure into a working
+failure. Do not leave an unowned process alive after declaring the work dead.
 
-`essays/`, `nightly/`, `dreamtime/`, and `tests/` are also common and should be added when the system actually uses them.
+The summoner may be able to inspect or attach to the exact executor session,
+but attachability is not custody. The working record is custody.
 
-## Ritual Design
+## Executors Are Not Spirits
 
-Rituals should be:
+A working may launch generic Claude, Codex, or other agents as ephemeral
+executors. They receive the working's bounded task and authority, then return
+evidence and deliverables.
 
-- readable
-- narrow in purpose
-- quiet by default
-- durable in their effects
+Do not introduce knights, quest agents, or any provider-specific worker caste
+as a first-class Excalibur concept. Provider sessions are implementation
+details beneath workings.
 
-Use rituals for continuity, consolidation, refresh work, and recurring stewardship. Keep them explicit in markdown.
+An executor does not acquire:
 
-## Charge Design
+- a named durable office
+- continuing memory
+- independent ritual law
+- ambient host authority
+- a social rank in the system
+
+## Artifacts and Deliverables
+
+Artifacts are what the system makes, collects, captures, publishes, or files.
+They are not memories and they are not execution records.
+
+Useful generic roots include:
+
+- `realm/artifacts/archive/`
+- `realm/artifacts/library/`
+- `realm/artifacts/media/`
+- `realm/artifacts/network/`
+- `realm/artifacts/notes/`
+- `realm/artifacts/reports/`
+- `realm/artifacts/research/`
+
+Add project-specific folders when the work warrants them. A working should
+name its expected deliverable before execution begins and validate it before
+claiming completion.
+
+## Realm and Projects
+
+The realm holds durable context around intentions: projects, sources,
+decisions, research, drafts, and other material that should outlive a turn or
+runner.
+
+A project is not a queue. It may contain obligations, but those obligations do
+not define the project.
+
+Keep product code and domain material in projects rather than folding them into
+the harness distribution.
+
+## Optional Questbook
+
+The questbook is a small, human-legible obligation and continuity ledger.
+
+Use it when the summoner benefits from a durable list of commitments,
+handoffs, reminders, or unresolved decisions. Do not make it:
+
+- a required control plane
+- a workflow engine
+- an agent registry
+- the owner of projects, workings, artifacts, or attention
+
+Workings remain valid without a questbook.
+
+## Named Spirits and Offices
+
+Create a named spirit only when an office needs distinct continuing memory and
+judgment. A spirit may steward a library, observatory, or application:
+
+- give it an exact identity and cornerstone
+- give it its own memory and narrow rituals
+- name every optional spellbook
+- name every root it may alter
+- keep application action behind bound casts or explicit filesystem authority
+- keep the application intelligible without the spirit
+
+A human-facing application door never widens spirit authority.
+
+A warden is conditional. Raise one only when exposure, complexity, or
+stewardship warrants a durable security office. Keep the office narrow and the
+rite serious. Otherwise use ordinary checks and bounded hardening workings.
+
+## Rituals
+
+Rituals should be readable, narrow, quiet by default, and durable in effect.
+Use them for continuity, consolidation, refresh work, and recurring
+stewardship. Do not use ritual prose to hide authority or spending.
+
+## Modules and Other Boundaries
+
+A module is an optional, versioned contribution composed with a pinned
+Excalibur base. Its manifest may request spellbooks and handlers, portals,
+services, spirit-office templates, rituals, static assets, migrations,
+conformance tests, realm roots, external-application bridges, and typed route
+endpoints. The complete contract is
+`core/extensions/README.md`.
+
+Keep the surrounding terms distinct:
+
+- a module is the versioned contribution and lifecycle contract
+- a spellbook is a capability family; a cast needs a real bound handler
+- a service is a supervised process, whether supplied by the base or a module
+- an external application retains its own source, data, and lifecycle
+- a spirit is a durable office with its own authority, memory, and judgment
+- a project is durable context in the realm
+- a working is bounded execution with custody
+- a deliverable is the result made for review or use
+
+Composition is pinned base, then accepted module contributions, then explicit
+local or moon authority decisions. Requested authority is not granted
+authority. Mere presence never activates a module.
+
+Modules may not apply arbitrary path overlays, collide with other
+contributions, rewrite core authority, inherit ambient credentials, expose a
+generic remote shell, or delete state they do not own. A constellation may
+select modules and govern typed routes, but it does not replace this base
+extension contract.
+
+## Charge
 
 Charge is the run-level continuation primitive.
 
-Use it to make expansion visible:
+- local management casts may cost `0`
+- acquisition, generation, or widening paths may cost more
+- emanations can have base cast cost `0` while allocating charge from their
+  source run
 
-- local management casts can often cost `0`
-- acquisition, generation, or widening paths can cost more
-- emanations may have base cast cost `0` while still allocating charge from the source run
+Keep `core/authority/chargebook.md` as the single tuning surface. Charge
+makes expansion visible; it does not replace authority.
 
-Emanations are the clearest example of the model. They show that widening work is not the same thing as being free. A spirit may cast an emanation at base cost `0`, but the source run still spends part of its own budget to buy that extra pass.
+## Memory
 
-The charge model should stay easy to understand at a glance.
+- the daily thread is the live ledger
+- `realm/memories/<spirit>/long-term.md` is compact top-of-head memory
+- `realm/memories/<spirit>/window/` is recent rolling memory
+- `realm/memories/<spirit>/archive/` preserves lower-signal residue
+- the rest of memory is durable searchable storage
+- artifacts hold results, not recollection
 
-Keep `chargebook.md` as the single tuning surface for cast costs. If a ritual is over-branching or spending too freely, adjust the relevant cast cost there instead of scattering cost logic through ritual prose.
+Do not let prompt context become an undifferentiated archive.
 
-## Memory Design
+## Runtime and Recovery
 
-Keep memory layered:
+Use `runtime/<spirit>/` for conversation ledgers, workings, projections,
+locks, queues, receipts, caches, and other machine records. Use
+`runtime/venvs/` for helper runtimes and `runtime/backups/` for local
+mirrors or rollback worktrees.
 
-- the daily thread is the live working ledger
-- `memories/long-term.md` is compact top-of-head durable memory
-- `memories/window/` is the rolling recent-memory window
-- `memories/archive/` is for lower-signal memory residue that is still worth preserving
-- the rest of `memories/` is durable searchable storage that does not need to stay prompt-attached
+- Write state atomically.
+- Preserve enough evidence to reconcile interrupted execution.
+- Keep one current claimant per working.
+- Use the host's native supervisor.
+- Retain a verified previous source bundle and release receipt.
+- Test cancellation, restart, and rollback before relying on them.
 
-The correct flow is:
+## Network and Subordinate Worlds
 
-- foreground conversation lands in the daily thread first
-- memory rituals distill that ledger into the rolling window and long-term memory
-- artifacts hold durable outputs that should outlive the thread
+Bind services to loopback by default. Prefer a private authenticated mesh for
+remote access. Public exposure is a separate reviewed exception.
 
-Do not let prompt context bloat into an undifferentiated pile.
+When one world administers another:
 
-## Storage Design
-
-Keep storage roles distinct:
-
-- `artifacts/` for the main shared work product surface between spirit and summoner
-- `questbook/` for the main shared obligation and continuity surface between spirit and summoner
-- `grimoire/portals/` for always-on surfaces
-- `spirits/<name>/cornerstone.md` and `spirits/<name>/memories/` for spirit-local self-maintenance
-- `spirits/<name>/rituals/` for spirit-local ritual law that should stay stable during ordinary execution
-- `vessel/state/` for machine-local runtime records, including daily conversation ledgers
-- `vessel/backups/` for local repository mirrors and backup worktrees
-- `vessel/venvs/` for isolated helper runtimes used by local utilities
-
-`grimoire/` and `vessel/` are spirit-side internals.
-
-`artifacts/` and `questbook/` are the main shared surfaces.
-
-That separation is structural. Do not collapse everything into one generic content folder.
-
-## Optional Surfaces
-
-These are good optional widening paths when the summoner wants them:
-
-- questbook
-- portals
-- network artifacts
-- corpus retrieval
-- media work
-- celestial context routed through portals
-
-Keep them available in the repository. Keep them optional in the initial build unless the summoner asks for them.
+- administrative direction is explicit
+- least authority is explicit on both ends
+- the subordinate inherits no ambient controller credential
+- the controller initiates administration by default
+- every inter-world route is typed, authenticated, audited, revocable, and
+  bounded by sender, recipient, payload, and delivery semantics
+- a route grants transport, never authority inside the recipient
 
 ## Security and Cleanliness
 
-Build secure defaults:
-
-- fail closed where authority, transport, or exposure rules matter
-- do not hardcode secrets into markdown or code
-- do not mix private operational residue into the public structure
-- keep human-editable manifests legible and reviewable
+- fail closed when authority, transport, or exposure is incomplete
+- reread spirit identity at each run boundary
+- keep source, durable realm, and private runtime distinct
+- keep secrets out of source, realm, markdown, Git, prompts, logs, and
+  artifacts
+- keep mutable private state out of generated source
+- keep manifests legible and reviewable
+- expose nothing publicly by implication
 
 ## Standard
 
-A new summoner should be able to read this repository and quickly understand:
+A new summoner should be able to answer:
 
-- where spirit identity lives
-- where casts are defined
-- how rituals work
-- why charge exists
-- where durable outputs belong
+- how do I talk to the primary spirit?
+- where does durable project context live?
+- what work is running, under whose custody, and with what authority?
+- what deliverable did it produce?
+- what needs my attention?
+- what survives an upgrade?
+- what is exposed, to whom, and why?
 
-If that is not clear, the system is too muddy.
+If those answers are muddy, the system is too muddy.
 
 ## Maintenance Rule
 
-When the taxonomy, hierarchy, or operating laws change, update this file in the same turn.
+When the taxonomy, hierarchy, or operating laws change, update this file,
+`INVOCATION.md`, and the human entrypoint in the same turn.

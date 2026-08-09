@@ -1,9 +1,232 @@
 ```text
-    _______  ___________    __    ________  __  ______ 
+    _______  ___________    __    ________  __  ______
    / ____/ |/ / ____/   |  / /   /  _/ __ )/ / / / __ \
   / __/  |   / /   / /| | / /    / // __  / / / / /_/ /
- / /___ /   / /___/ ___ |/ /____/ // /_/ / /_/ / _, _/ 
-/_____//_/|_\____/_/  |_/_____/___/_____/\____/_/ |_|  
+ / /___ /   / /___/ ___ |/ /____/ // /_/ / /_/ / _, _/
+/_____//_/|_\____/_/  |_/_____/___/_____/\____/_/ |_|
+```
+
+This is a fork of Vie McCoy’s Excalibur hyperobject. It is mostly additive, supplementing the original with support for multiple, stable audiences with spirits that are accessible across surfaces. It differs slightly in its preferred file structure, recommending one that is friendly to more clamped permissions. The benefit of this slightly more opinionated invocation is compatibility with excalibur-moons, an outer hyperobject for running a broader network of Excalibur realms.
+
+## Invocation Instructions
+
+There is deliberately no runtime code in this repository. A capable model can
+raise the implementation with you, and doing so makes its authority,
+supervision, and recovery behavior inspectable instead of inherited by
+accident.
+
+Give these two files to your Spirit of Artifice and Craft:
+
+1. [`INVOCATION.md`](INVOCATION.md)
+2. [`AGENTS.md`](./AGENTS.md)
+
+It should not matter which one they read first.
+
+[`TEMPERING.md`](./TEMPERING.md) records what this fork changes and the
+remaining upstream licensing ambiguity.
+
+## The Shape
+
+Excalibur separates five things that agent harnesses often blur:
+
+- An **audience** is a conversation: one continuous sitting between a summoner
+  and a spirit. It is not a project, job queue, or durable container.
+- A **project** lives in the **realm**: durable context, sources, decisions, and
+  continuity around an intention.
+- A **working** is bounded execution: one durable identity, one claimant,
+  explicit authority, checkpoints, cancellation, and one honest outcome.
+- An **artifact**, or **deliverable**, is the result: the report, file, site,
+  image, patch, or other thing made for review or use.
+- **Attention** is the small surface of matters that need judgment: review,
+  decision, failure, approval, or another named human intervention.
+
+Conversation should stay conversational. Context should outlive a process.
+Execution should have custody. Results should land somewhere durable.
+Attention should be scarce enough to mean something.
+
+The optional [`realm/questbook/`](./realm/questbook/) is only a lightweight
+ledger for obligations and continuity. It is not a workflow engine, an agent
+hierarchy, or a prerequisite for workings.
+
+## What This Gives You
+
+- One [`core/`](./core/) boundary for reviewed source and owner-controlled
+  authority
+- One illustrative primary spirit:
+  [`lapis`](./core/authority/spirits/lapis/)
+- One shared charge ledger at
+  [`core/authority/chargebook.md`](./core/authority/chargebook.md)
+- Nested [spellbooks](./core/spellbooks/) and one cast manifest per folder
+- Portals, portable [service law](./core/services/), and a stable
+  [module extension seam](./core/extensions/)
+- One [`realm/`](./realm/) for projects, research, sites, artifacts, an
+  optional questbook, and per-spirit memories
+- One [`runtime/`](./runtime/) for private machine state, helper runtimes,
+  and backup worktrees
+- Minimal rituals and a real daily thread ledger once the scaffold is raised
+
+## How It Works
+
+The editable law stays in markdown:
+
+- `identity.md` says what a spirit is and what authority it may receive
+- `cornerstone.md` says how it behaves
+- `rituals/*.md` are scheduled rites
+- `core/spellbooks/<book>/spellbook.md` defines a capability family
+- `core/spellbooks/<book>/<cast>/spell.md` defines one cast
+
+The installed world should enforce three custody boundaries, whatever exact
+paths the summoner chooses:
+
+- `core/` — reviewed source and owner-controlled authority
+- `realm/` — spirit-controlled durable worlds and outputs
+- `runtime/` — private machine state
+
+A release may replace reviewed source and rendered service material. It must
+preserve the realm and runtime, including projects, artifacts, memories,
+conversations, credentials, and application data. Secrets remain outside
+source, realm, prompts, and Git.
+
+The summoner also needs one real foreground transport. Every inbound and
+outbound turn should be mirrored into:
+
+- `runtime/<spirit>/conversations/<local-date>.jsonl`
+
+One transport may hold several audiences with the same spirit. Keep every
+audience's exact order and provider continuity; sharing a screen does not merge
+two sittings.
+
+## Workings and Executors
+
+Long or cast-heavy work belongs in workings, not in the foreground audience.
+A working is not merely a detached process. It has durable custody even if its
+runner or observer disappears.
+
+A working may employ generic Claude, Codex, or other coding agents as ephemeral
+executors. They inherit only the working's bounded task and authority. They do
+not become named spirits, acquire continuing memory, or form a first-class
+social hierarchy merely because a provider exposes sessions.
+
+Create a named spirit only for a durable office that needs its own continuing
+memory and judgment. A library steward or security warden may qualify. A
+temporary reviewer, builder, or test runner does not.
+
+## Modules
+
+A module is an external, versioned contribution composed with a pinned
+Excalibur base. It may offer declared spellbooks and cast handlers, portals,
+services, spirit-office templates, rituals, static assets, migrations,
+conformance tests, realm roots, application bridges, and typed constellation
+endpoints.
+
+Its manifest requests; it does not grant. An installation locks the exact
+source revision and content digest, accepts individual contributions, and
+records a separate local or moon authority decision. Composition is:
+
+    pinned Excalibur base
+    -> accepted module contributions
+    -> explicit local or moon authority decisions
+
+Modules never activate by presence. Arbitrary path overlays, collisions, core
+authority rewrites, ambient credentials, generic remote shells, and deletion
+of state the module does not own are forbidden. The complete lifecycle and
+sanitized templates are in [`core/extensions/`](./core/extensions/).
+
+## Charge
+
+Charge is the visible budget for spellcasts.
+
+- Local management casts can often cost `0`
+- Work that branches, acquires, generates, or delegates can cost more
+- Emanations can have base cast cost `0` while still allocating charge from
+  the source run
+- An emanation does not mint new charge; it draws from the run that launched it
+
+`core/authority/chargebook.md` is the single tuning surface. If a ritual is
+too eager to branch or acquire, change the cost there rather than hiding
+policy throughout the prose.
+
+## Memory
+
+The system should not overwhelm its spirits.
+
+- The daily thread is the live working ledger
+- `realm/memories/<spirit>/long-term.md` is compact top-of-head memory
+- `realm/memories/<spirit>/window/` is the rolling recent-memory window
+- `realm/memories/<spirit>/archive/` keeps lower-signal residue worth
+  preserving
+- Artifacts hold results; memory holds what a spirit should remember
+
+## Security
+
+Good warding is mostly permissions and boundaries.
+
+- Open spellbooks and bound casts are different facts
+- Every writable root is explicit and exact
+- Human-facing controls never widen spirit authority
+- Services bind locally unless an authenticated outward path is deliberately
+  reviewed
+- Secrets arrive from an external secret source through the supervisor
+- Runtime writes are atomic, inspectable, and recoverable
+- Unknown authority, transport, or exposure states fail closed
+
+A separate warden is conditional, not ceremonial. Raise one only when the
+system's exposure, complexity, or stewardship burden warrants a durable
+security office with distinct memory and judgment. Keep that office narrow.
+Otherwise use ordinary reviewed checks and bounded workings.
+
+## Filesystem
+
+```text
+excalibur/
+  README.md
+  AGENTS.md
+  INVOCATION.md
+  core/
+    engine/
+    authority/
+      chargebook.md
+      spirits/
+        lapis/
+          identity.md
+          cornerstone.md
+          rituals/
+    spellbooks/
+    portals/
+    services/
+    extensions/
+  realm/
+    projects/
+    research/
+    sites/
+    artifacts/
+    questbook/                 optional
+    memories/
+      lapis/
+  runtime/
+    lapis/
+      conversations/
+      workings/
+      projections/
+    venvs/
+    backups/
+```
+
+The source scaffold is intentionally legible. The invocation decides its exact
+absolute installation paths, supervisor, transport, model provider, and
+exposure policy while preserving the roles of `core/`, `realm/`, and
+`runtime/`. Those decisions must remain explicit and reviewable.
+
+```text
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ORIGINAL EXCALIBUR ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+```
+
+```text
+    _______  ___________    __    ________  __  ______
+   / ____/ |/ / ____/   |  / /   /  _/ __ )/ / / / __ \
+  / __/  |   / /   / /| | / /    / // __  / / / / /_/ /
+ / /___ /   / /___/ ___ |/ /____/ // /_/ / /_/ / _, _/
+/_____//_/|_\____/_/  |_/_____/___/_____/\____/_/ |_|
 ```
 
 Excalibur is a hyperobject which can be turned into a state-of-the-art agent harness with superior primitives to existing options. The mystical language is optional, but I will resent you if you fork this and make it mundane.

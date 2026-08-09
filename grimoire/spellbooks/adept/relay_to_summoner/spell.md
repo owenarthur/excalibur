@@ -1,8 +1,0 @@
----
-name: "relay_to_summoner"
-description: "Forward a message or artifact attachment to the primary summoner recipient."
----
-Placeholder cast manifest for the Excalibur scaffold.
-
-In a full implementation, each cast lives in its own folder under `grimoire/spellbooks/<book>/<cast>/`.
-This scaffold keeps only the descriptive `spell.md` layer and omits handlers and runtime code.

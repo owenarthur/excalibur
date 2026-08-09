@@ -1,0 +1,95 @@
+apiVersion: extensions.excalibur/v1alpha1
+kind: Module
+metadata:
+  id: reference-library-bridge
+  version: 1.0.0
+  status: example-only
+  description: A sanitized bridge to an independently managed reference application.
+source:
+  reference: "https://example.invalid/reference-library-bridge.git"
+  revision: "0000000000000000000000000000000000000000"
+  contentDigest: "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+compatibility:
+  moduleInterface: extensions.excalibur/v1alpha1
+  excaliburRevisions:
+    - replace-with-a-pinned-revision
+inputs:
+  - id: catalog-api
+    class: external-application-interface
+    access: read-only
+outputs:
+  - id: cited-reading-note
+    class: deliverable
+    destinationClass: realm-artifact
+contributions:
+  spellbooks:
+    - id: reference-reading
+      manifest: contributions/spellbooks/reference-reading/spellbook.md
+  castHandlers:
+    - id: reference-reading-search
+      spellbook: reference-reading
+      cast: search
+      source: handlers/reference-reading-search
+  portals: []
+  services:
+    - id: reference-reader
+      source: contributions/services/reference-reader
+  spiritOfficeTemplates: []
+  rituals: []
+  staticAssets: []
+  migrations:
+    - id: index-v1
+      source: migrations/index-v1
+      reversible: true
+  conformanceTests:
+    - id: bridge-boundary
+      source: tests/bridge-boundary
+  requestedRealmRoots:
+    - id: reference-notes
+      class: artifacts
+      access: write
+  externalApplicationBridges:
+    - id: catalog
+      application: independently-managed-reference-library
+      direction: module-to-application
+      dataClasses:
+        - catalog-query
+        - citation-result
+  routeEndpoints: []
+authority:
+  requested:
+    - id: reference-notes-write
+      scope: requestedRealmRoots/reference-notes
+  forbidden:
+    - core-authority-rewrite
+    - arbitrary-path-overlay
+    - ambient-credential-inheritance
+    - generic-remote-shell
+    - delete-unowned-state
+secrets:
+  - id: catalog-client
+    externalReferenceRequired: true
+    consumer: services/reference-reader
+state:
+  owned:
+    - id: search-index
+      class: module-runtime
+  borrowedReadOnly:
+    - id: external-catalog
+      class: external-application-data
+  preserved:
+    - external-catalog
+    - realm
+    - runtime
+health:
+  - id: local-ready
+    class: process
+  - id: catalog-readable
+    class: bridge
+lifecycle:
+  stage: required
+  promote: explicit-review
+  receipt: required
+  rollback: previous-reviewed-release
+  disable: retain-owned-state
+  uninstall: retain-state-unless-separately-approved
