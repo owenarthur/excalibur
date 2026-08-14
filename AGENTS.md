@@ -68,6 +68,29 @@ a routine release to reseed it.
 Keep credentials outside the source and durable prose. The native supervisor
 may provide exact credential references to the exact process that needs them.
 
+## Human Operators and Spirit Authority
+
+The human owner and declared human operators stand outside the spirit's
+authority model. They may hold host administration or root because the world
+is theirs to inspect, repair, change, or remove. That privilege is local to
+this installation; it is not a cast, spellbook, spirit capability, or grant
+over another world.
+
+Run the primary spirit and ordinary services as dedicated non-root identities.
+A spirit must not receive a root shell, passwordless general-purpose
+elevation, the operator's credentials, or authority to rewrite its own
+identity and core law. When privileged maintenance is genuinely needed, use a
+reviewed operator action or a narrow bound helper with exact inputs and
+effects.
+
+An operator may let an installation evolve locally. Treat those changes as
+real current state with provenance, not as corruption merely because they are
+absent from an earlier scaffold or outside coordinator. Before an update
+replaces reviewed source or service material, discover local changes and
+either preserve them, incorporate them into a new local revision, or stop for
+an explicit conflict decision. Never silently erase them in the name of
+reconciliation.
+
 ## Primary Spirit
 
 Use Lapis as the illustrative primary orchestrator unless the summoner chooses
@@ -312,8 +335,8 @@ When one world administers another:
 
 - administrative direction is explicit
 - least authority is explicit on both ends
-- the subordinate inherits no ambient controller credential
-- the controller initiates administration by default
+- the administered world inherits no ambient administrator credential
+- human administration and spirit-to-spirit communication remain separate
 - every inter-world route is typed, authenticated, audited, revocable, and
   bounded by sender, recipient, payload, and delivery semantics
 - a route grants transport, never authority inside the recipient

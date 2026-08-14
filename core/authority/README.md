@@ -12,3 +12,8 @@ authority.
 
 Module requests are accepted or refused by a separate explicit owner decision.
 A module manifest never rewrites this tree and never grants itself authority.
+
+Human operator authority is not stored as spirit authority. An installation
+owner may hold host root, but no spirit identity may inherit that privilege,
+the owner's credentials, or general-purpose elevation. Privileged automation
+must be an exact reviewed helper or an operator action outside the spirit.

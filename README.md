@@ -161,6 +161,11 @@ The system should not overwhelm its spirits.
 
 Good warding is mostly permissions and boundaries.
 
+- The human owner and declared operators may hold local root; that is outside
+  spirit authority and grants nothing over another world
+- The resident spirit and ordinary services run as non-root identities
+- General-purpose elevation and operator credentials never enter a spirit's
+  context; privileged helpers are exact and reviewed
 - Open spellbooks and bound casts are different facts
 - Every writable root is explicit and exact
 - Human-facing controls never widen spirit authority
@@ -169,6 +174,11 @@ Good warding is mostly permissions and boundaries.
 - Secrets arrive from an external secret source through the supervisor
 - Runtime writes are atomic, inspectable, and recoverable
 - Unknown authority, transport, or exposure states fail closed
+
+An installation may evolve under its human operators. Updates must inspect
+that local state and preserve it, incorporate it into a new reviewed local
+revision, or stop on conflict. A coordinator or release tool must not call an
+owner's legitimate local change “drift” and silently erase it.
 
 A separate warden is conditional, not ceremonial. Raise one only when the
 system's exposure, complexity, or stewardship burden warrants a durable

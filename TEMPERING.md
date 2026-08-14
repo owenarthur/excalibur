@@ -44,12 +44,26 @@ state fail closed.
 No runtime implementation, host configuration, credential, or private
 deployment fact is included here.
 
+## Third tempering
+
+The third tempering makes the human/inhabitant boundary literal. A human owner
+or declared operator may hold root inside an installation; the resident spirit
+and ordinary services do not. Human root is neither a cast nor ambient spirit
+authority, and it conveys nothing over another Excalibur world.
+
+It also makes local evolution honest. An operator's legitimate local changes
+are current installation state, not automatic reconciliation defects. A later
+release must discover them and preserve them, incorporate them into a reviewed
+local revision, or stop for a conflict decision instead of silently restoring
+an earlier scaffold.
+
 ## Fork status
 
-The fork owner reviewed `second-tempering` and chose to incorporate it into
-the fork's `master` branch. This is a change to `owenarthur/excalibur` only. It
-is not a pull request, merge, or proposed change to Vie McCoy's upstream
-repository, nor a claim of upstream endorsement.
+The fork owner reviewed the second and third temperings and chose to
+incorporate them into the fork's `master` branch. These are changes to
+`owenarthur/excalibur` only. They are not pull requests, merges, or proposed
+changes to Vie McCoy's upstream repository, nor claims of upstream
+endorsement.
 
 ## License gate
 

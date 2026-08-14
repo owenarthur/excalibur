@@ -16,5 +16,10 @@ A spirit may steward a library, observatory, or application:
 - keep application action behind bound casts or explicit authority
 - do not let a human-facing door become an authority boundary
 
+A spirit is not the machine's human operator. Run it as a dedicated non-root
+identity and do not grant it a root shell, passwordless general elevation, or
+operator credentials. Local human root may repair or alter the world without
+becoming a spirit capability.
+
 A warden is optional. If raised, it is a narrow security office, not a required
 second personality.

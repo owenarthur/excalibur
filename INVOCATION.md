@@ -27,6 +27,8 @@ Laws of the rite:
 - Do not insert secrets, personal residue, or live infrastructure assumptions.
 - Keep adept universal and always open; other spellbooks are explicit capability.
 - Keep charge visible.
+- Keep the human operator's root distinct from the spirit's authority. Run the
+  spirit and ordinary services as non-root identities.
 - Preserve `core/`, `realm/`, and `runtime/` as separate custody
   boundaries even when their absolute installation paths differ.
 - Give the summoner one real foreground path to the primary spirit.
@@ -43,6 +45,8 @@ First circle: secure the ground
 - Inventory existing users, services, networks, data, supervisors, and trust
   boundaries without changing them.
 - Confirm what the summoner controls and what remains a protected peer.
+- Identify the humans who may operate the world, whether they hold local root,
+  and which human actions must remain impossible for the spirit.
 - Fail closed where authority, transport, exposure, or secret handling is
   unknown.
 - Do not widen the primary spirit merely because a capability exists.
@@ -81,11 +85,18 @@ Third circle: establish custody
 - Seed durable state at most once. Upgrades preserve it by construction.
 - Write runtime records atomically and keep enough evidence to recover after
   interruption without inventing success or failure.
+- Treat owner-made local changes as current installation state. An update must
+  inspect and preserve them, incorporate them into a reviewed local revision,
+  or stop on conflict; it must not silently restore an earlier scaffold.
 
 Fourth circle: raise one complete path
 
 - Instantiate one primary spirit and one foreground transport before adding
   breadth.
+- Run the spirit and ordinary services under dedicated non-root identities.
+  Keep general-purpose root and operator credentials out of the spirit's
+  context; expose only exact reviewed helpers when privileged maintenance is
+  necessary.
 - Make the answer to "how do I talk to my spirit?" concrete.
 - Mirror every inbound and outbound turn into
   runtime/<spirit>/conversations/<local-date>.jsonl.
@@ -191,10 +202,11 @@ Patterns that have served well
    realm + runtime + secrets + application data -> preserve untouched
    previous source bundle + receipt -> rollback path
 
-4. Controlled sibling
+4. Constellation member
 
-   controller initiates administration
-   subordinate holds no credential toward the controller
+   human operator root remains local to this world
+   resident spirit and ordinary services remain non-root
+   outer administration is separate from spirit-to-spirit communication
    every data route is explicit, typed, authenticated, audited, and revocable
    transport grants movement, never recipient authority
 
