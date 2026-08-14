@@ -122,6 +122,31 @@ Every installation needs one concrete foreground transport.
 The shared daily thread joins conversation, ritual continuity, and working
 outcomes. It does not turn them into one kind of object.
 
+## Human Entrances
+
+An entrance is a stable human way into one aspect of an inhabited world. It is
+an interface concept, not a cast, spellbook, authority grant, or required
+implementation technology.
+
+A full habitation should make these concepts concrete:
+
+- a **spirit entrance** for persistent named audiences with the resident
+  spirit; its ordinary view is conversational, and it may reveal the exact
+  live terminal behind the same audience without creating a second session
+- an **operator shell entrance** for one default persistent human shell and,
+  where useful, additional named shells; it remains separate from spirit
+  authority
+- a **file entrance** exposing only the deliberately shared files and the
+  read or write powers granted to each human principal
+- optionally, a **voice entrance** for beginning or continuing an audience by
+  speech
+
+`/spirit`, `/shell`, `/files`, and `/talk` are good recognizable route names
+for those concepts. They are recommendations, not part of the hyperobject's
+required invocation. An implementation may use a web service, terminal
+multiplexer, native application, or another suitable mechanism. Preserve the
+continuity and authority boundaries, not a particular mechanism.
+
 ## Behavioral Laws
 
 - Answer the summoner before deeper work begins.
@@ -179,9 +204,8 @@ A working may launch generic Claude, Codex, or other agents as ephemeral
 executors. They receive the working's bounded task and authority, then return
 evidence and deliverables.
 
-Do not introduce knights, quest agents, or any provider-specific worker caste
-as a first-class Excalibur concept. Provider sessions are implementation
-details beneath workings.
+Temporary executors remain implementation beneath workings. A provider's
+session names or process model do not turn them into durable offices.
 
 An executor does not acquire:
 
@@ -240,17 +264,11 @@ clear.
 
 ## Optional Questbook
 
-The questbook is a small, human-legible obligation and continuity ledger.
-
-Use it when the summoner benefits from a durable list of commitments,
-handoffs, reminders, or unresolved decisions. Do not make it:
-
-- a required control plane
-- a workflow engine
-- an agent registry
-- the owner of projects, workings, artifacts, or attention
-
-Workings remain valid without a questbook.
+The questbook is optional, human-legible realm content for commitments,
+handoffs, reminders, and unresolved decisions. It has no required interface or
+execution model. Workings retain execution custody, projects retain durable
+context, and attention retains matters needing judgment. Any presentation or
+automation around questbook content belongs to the implementation.
 
 ## Named Spirits and Offices
 
@@ -376,6 +394,7 @@ When one world administers another:
 A new summoner should be able to answer:
 
 - how do I talk to the primary spirit?
+- how do I reach my operator shell and deliberately shared files?
 - where does durable project context live?
 - what work is running, under whose custody, and with what authority?
 - what deliverable did it produce?

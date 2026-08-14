@@ -70,10 +70,24 @@ formal dependencies, capability manifests, or another spellbook layer. They
 open no spellbook, bind no cast, widen no root, and do not replace the
 cornerstone.
 
+## Fifth tempering
+
+The fifth tempering clarifies the human entrances to an inhabited world. A
+stable spirit audience, operator shell, and deliberate file boundary are the
+concepts; `/spirit`, `/shell`, and `/files` are recommended conventions rather
+than mandatory invocation. A voice entrance is optional. Conversation and
+terminal views may reveal the same exact audience without making terminal
+technology part of the law.
+
+It also states the executor rule positively: temporary provider processes stay
+beneath workings and do not become durable offices merely because they have
+session names. The law does not maintain a catalogue of disallowed worker
+titles.
+
 ## Fork status
 
-The fork owner reviewed the second, third, and fourth temperings and chose to
-incorporate them into the fork's `master` branch. These are changes to
+The fork owner reviewed the second, third, fourth, and fifth temperings and
+chose to incorporate them into the fork's `master` branch. These are changes to
 `owenarthur/excalibur` only. They are not pull requests, merges, or proposed
 changes to Vie McCoy's upstream repository, nor claims of upstream
 endorsement.

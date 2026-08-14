@@ -44,9 +44,10 @@ Conversation should stay conversational. Context should outlive a process.
 Execution should have custody. Results should land somewhere durable.
 Attention should be scarce enough to mean something.
 
-The optional [`realm/questbook/`](./realm/questbook/) is only a lightweight
-ledger for obligations and continuity. It is not a workflow engine, an agent
-hierarchy, or a prerequisite for workings.
+The optional [`realm/questbook/`](./realm/questbook/) is lightweight,
+human-readable content for obligations and continuity. It has no required
+interface or execution model; any presentation or automation around it belongs
+to the implementation.
 
 ## What This Gives You
 
@@ -97,6 +98,24 @@ outbound turn should be mirrored into:
 One transport may hold several audiences with the same spirit. Keep every
 audience's exact order and provider continuity; sharing a screen does not merge
 two sittings.
+
+## Human Entrances
+
+An inhabited Excalibur should offer stable ways for a human to reach its
+resident spirit, an operator shell, and deliberately exposed files. A voice
+entrance is a useful optional fourth concept.
+
+The spirit entrance holds persistent named audiences. Its normal view may be
+conversation, with a direct switch to the exact live terminal behind that same
+audience and back again. The shell entrance belongs to the human operator and
+does not enlarge the spirit's authority. The file entrance exposes a reviewed
+boundary rather than the whole world.
+
+`/spirit`, `/shell`, `/files`, and `/talk` are recommended conventional route
+names, not required invocation law. A raised system may realize the concepts
+with a web service, terminal multiplexer, native application, or another
+suitable mechanism. Excalibur specifies the continuity and authority
+boundaries, not that machinery.
 
 ## Workings and Executors
 

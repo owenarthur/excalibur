@@ -55,6 +55,8 @@ Second circle: enter plan with the summoner
 
 - Ask only for choices that materially determine the build:
   - the foreground transport
+  - how humans will reach the resident spirit, operator shell, and deliberately
+    exposed files, and whether a voice entrance is useful
   - the host's native supervisor and restart behavior
   - model providers and how runs are invoked, observed, cancelled, and stopped
   - the absolute roots corresponding to `core/`, `realm/`, and `runtime/`
@@ -101,6 +103,13 @@ Fourth circle: raise one complete path
   context; expose only exact reviewed helpers when privileged maintenance is
   necessary.
 - Make the answer to "how do I talk to my spirit?" concrete.
+- Give stable human entrances to the spirit, operator shell, and deliberately
+  exposed files. Treat `/spirit`, `/shell`, and `/files` as helpful conventions,
+  not mandatory routes. Add a voice entrance only when useful.
+- If the spirit entrance offers both conversation and terminal views, both
+  must address the same exact persistent audience. Switching views must not
+  guess, fork, or reconnect to a different provider process.
+- Keep the operator shell human-owned and separate from spirit authority.
 - Mirror every inbound and outbound turn into
   runtime/<spirit>/conversations/<local-date>.jsonl.
 - Preserve exact continuity when one transport holds several audiences.
@@ -224,7 +233,17 @@ Patterns that have served well
    executor completion -> evidence and deliverable
    no durable office, memory, or ambient host authority
 
-6. External module
+6. Human entrances
+
+   stable spirit audience -> conversational view + exact same-session terminal
+   human operator -> persistent default shell + optional named shells
+   reviewed exposure boundary -> files
+   optional speech capture -> voice entrance
+
+   Conventional routes such as /spirit, /shell, /files, and /talk are
+   implementation recommendations, not hyperobject law.
+
+7. External module
 
    pinned base + verified module lock + accepted contributions
    -> explicit authority decision -> inert stage -> validate and render

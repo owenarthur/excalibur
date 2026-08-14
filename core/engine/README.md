@@ -17,6 +17,8 @@ The runtime should:
 - give workings durable identity, one claimant, leases, checkpoints,
   cancellation, and one terminal outcome
 - treat generic provider agents as ephemeral executors beneath workings
+- provide stable spirit, operator-shell, and file entrance concepts without
+  binding the hyperobject to particular route names or terminal technology
 - land validated results as artifacts or named deliverables
 - create attention only for review, decision, failure, approval, or
   intervention
