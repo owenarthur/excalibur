@@ -57,9 +57,22 @@ release must discover them and preserve them, incorporate them into a reviewed
 local revision, or stop for a conflict decision instead of silently restoring
 an earlier scaffold.
 
+## Fourth tempering
+
+The fourth tempering adds practices at their deliberately small scale. A
+practice is a plain-markdown guide under `realm/practices/<spirit>/` for a
+recurring routine such as reporting, research, software development, or
+review. It is a place for the spirit to retain the summoner's preferences and
+refine its local method through feedback.
+
+Practices are spirit-controlled realm context. They are not core authority,
+formal dependencies, capability manifests, or another spellbook layer. They
+open no spellbook, bind no cast, widen no root, and do not replace the
+cornerstone.
+
 ## Fork status
 
-The fork owner reviewed the second and third temperings and chose to
+The fork owner reviewed the second, third, and fourth temperings and chose to
 incorporate them into the fork's `master` branch. These are changes to
 `owenarthur/excalibur` only. They are not pull requests, merges, or proposed
 changes to Vie McCoy's upstream repository, nor claims of upstream

@@ -1,6 +1,7 @@
 # Spirits
 
-A spirit is a durable office with its own continuing memory and judgment.
+A spirit is a durable office with its own continuing memory, learned
+practices, and judgment.
 
 The first spirit is the primary orchestrator. Raise another only when the
 office should endure independently: a library steward, a narrow warden, or
@@ -11,7 +12,8 @@ caste. Those are ephemeral executors beneath workings.
 
 A spirit may steward a library, observatory, or application:
 
-- give it its own identity, cornerstone, memory, and narrow rituals
+- give it its own identity, cornerstone, memory, practice directory, and
+  narrow rituals
 - name every spellbook and root
 - keep application action behind bound casts or explicit authority
 - do not let a human-facing door become an authority boundary

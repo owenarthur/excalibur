@@ -68,6 +68,7 @@ Second circle: enter plan with the summoner
     source and digest
   - whether the lightweight questbook is useful
   - whether any existing domain truly needs a resident spirit
+  - whether any recurring work deserves a small initial practice guide
 - Do not hardcode an unanswered security-significant choice.
 
 Third circle: establish custody
@@ -77,11 +78,13 @@ Third circle: establish custody
 - Give private machine state the `runtime/` role.
 - Place projects and their durable context in the realm.
 - Place completed or reviewable results in `realm/artifacts/`.
+- Place each spirit's short recurring-work guides in
+  `realm/practices/<spirit>/`.
 - Keep credentials, provider state, locks, caches, queues, and conversation
   ledgers in private runtime or an external secret store.
 - A release may replace reviewed source and rendered service definitions. It
-  must not replace realm, artifacts, memories, runtime, credentials, or
-  application data.
+  must not replace realm, artifacts, memories, practices, runtime,
+  credentials, or application data.
 - Seed durable state at most once. Upgrades preserve it by construction.
 - Write runtime records atomically and keep enough evidence to recover after
   interruption without inventing success or failure.
@@ -103,6 +106,9 @@ Fourth circle: raise one complete path
 - Preserve exact continuity when one transport holds several audiences.
 - Reread the spirit's identity for every run. Changing identity is changing
   authority; do not cache it past that boundary.
+- When a task matches a practice, read its small guide. Let the spirit refine
+  the guide from the summoner's feedback through ordinary realm authority.
+  Practices grant no authority and do not open spellbooks or bind casts.
 - Bind a new service to loopback first. Publish it only through a reviewed,
   authenticated path.
 - Use the host's native supervisor. A Mac may use launchd; a Linux host may use
@@ -165,6 +171,8 @@ Eighth circle: decide whether another spirit is warranted
   judgment, not a provider session or worker label.
 - Raise a resident spirit only when an enduring library, observatory,
   application, or other domain benefits from that office.
+- Give a resident spirit its own practice directory for the recurring work
+  that genuinely benefits from learned local guidance.
 - A dwelling does not grant dominion. Name every root and cast.
 - A separate warden is conditional. Raise one only when exposure, complexity,
   or stewardship warrants a durable security office. Keep it narrow and give

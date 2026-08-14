@@ -60,7 +60,8 @@ hierarchy, or a prerequisite for workings.
 - Portals, portable [service law](./core/services/), and a stable
   [module extension seam](./core/extensions/)
 - One [`realm/`](./realm/) for projects, research, sites, artifacts, an
-  optional questbook, and per-spirit memories
+  optional questbook, per-spirit memories, and small recurring-work
+  [practices](./realm/practices/)
 - One [`runtime/`](./runtime/) for private machine state, helper runtimes,
   and backup worktrees
 - Minimal rituals and a real daily thread ledger once the scaffold is raised
@@ -71,6 +72,7 @@ The editable law stays in markdown:
 
 - `identity.md` says what a spirit is and what authority it may receive
 - `cornerstone.md` says how it behaves
+- `realm/practices/<spirit>/*.md` says how it usually performs recurring work
 - `rituals/*.md` are scheduled rites
 - `core/spellbooks/<book>/spellbook.md` defines a capability family
 - `core/spellbooks/<book>/<cast>/spell.md` defines one cast
@@ -84,8 +86,8 @@ paths the summoner chooses:
 
 A release may replace reviewed source and rendered service material. It must
 preserve the realm and runtime, including projects, artifacts, memories,
-conversations, credentials, and application data. Secrets remain outside
-source, realm, prompts, and Git.
+practices, conversations, credentials, and application data. Secrets remain
+outside source, realm, prompts, and Git.
 
 The summoner also needs one real foreground transport. Every inbound and
 outbound turn should be mirrored into:
@@ -145,6 +147,18 @@ Charge is the visible budget for spellcasts.
 `core/authority/chargebook.md` is the single tuning surface. If a ritual is
 too eager to branch or acquire, change the cost there rather than hiding
 policy throughout the prose.
+
+## Practices
+
+A practice is a short markdown guide for recurring work: reporting, research,
+software development, review, or another routine the spirit performs often.
+It records what the summoner prefers and what the spirit has learned about
+doing that work well.
+
+Practices live under `realm/practices/<spirit>/`. They evolve through ordinary
+feedback and should remain small enough to read when a matching task begins.
+They grant no authority, open no spellbook, bind no cast, and do not replace
+the spirit's cornerstone.
 
 ## Memory
 
@@ -211,6 +225,8 @@ excalibur/
     sites/
     artifacts/
     questbook/                 optional
+    practices/
+      lapis/
     memories/
       lapis/
   runtime/

@@ -18,7 +18,8 @@ Keep the system simple and explicit:
 - one `runtime/` tree for private machine-local state
 - identities and rituals under
   `core/authority/spirits/<name>/`, with memories under
-  `realm/memories/<name>/`
+  `realm/memories/<name>/` and small recurring-work guides under
+  `realm/practices/<name>/`
 - one shared charge ledger at `core/authority/chargebook.md`
 - one universal spellbook at `core/spellbooks/adept/`
 - optional capability families under `core/spellbooks/<book>/`
@@ -26,8 +27,8 @@ Keep the system simple and explicit:
 - portals under `core/portals/` and portable supervisor law under
   `core/services/`
 - one stable external module seam under `core/extensions/`
-- durable projects, research, sites, artifacts, and an optional questbook
-  under `realm/`
+- durable projects, research, sites, artifacts, per-spirit practices, and an
+  optional questbook under `realm/`
 
 Do not flatten the hierarchy. The distinctions are part of the design.
 
@@ -61,9 +62,9 @@ different absolute installation paths, but it must preserve the three roles
 and may not collapse one into another.
 
 A release may replace reviewed source and generated service material. It must
-preserve the realm, projects, artifacts, memories, runtime, credentials,
-conversation ledgers, and application data. Seed durable state once; never use
-a routine release to reseed it.
+preserve the realm, projects, artifacts, memories, practices, runtime,
+credentials, conversation ledgers, and application data. Seed durable state
+once; never use a routine release to reseed it.
 
 Keep credentials outside the source and durable prose. The native supervisor
 may provide exact credential references to the exact process that needs them.
@@ -221,6 +222,22 @@ not define the project.
 Keep product code and domain material in projects rather than folding them into
 the harness distribution.
 
+## Practices
+
+A practice is a small, plain-markdown guide to recurring work. It gives a
+spirit a stable place to retain how the summoner likes a report, research pass,
+software task, review, or similar routine performed.
+
+Keep each spirit's practices under `realm/practices/<spirit>/`. Consult the
+relevant guide when the work matches and revise it when the summoner's feedback
+changes the routine. Practices should stay short, useful, and naturally
+editable.
+
+A practice is not authority, a dependency graph, or a second spellbook system.
+It does not open a spellbook, bind a cast, widen a writable root, or replace a
+cornerstone. It may mention ordinary tools in prose when that makes the guide
+clear.
+
 ## Optional Questbook
 
 The questbook is a small, human-legible obligation and continuity ledger.
@@ -241,7 +258,7 @@ Create a named spirit only when an office needs distinct continuing memory and
 judgment. A spirit may steward a library, observatory, or application:
 
 - give it an exact identity and cornerstone
-- give it its own memory and narrow rituals
+- give it its own memory, practice directory, and narrow rituals
 - name every optional spellbook
 - name every root it may alter
 - keep application action behind bound casts or explicit filesystem authority
@@ -309,6 +326,8 @@ makes expansion visible; it does not replace authority.
 - `realm/memories/<spirit>/archive/` preserves lower-signal residue
 - the rest of memory is durable searchable storage
 - artifacts hold results, not recollection
+- `realm/practices/<spirit>/` holds learned guides for recurring work, not
+  general recollection or authority
 
 Do not let prompt context become an undifferentiated archive.
 
