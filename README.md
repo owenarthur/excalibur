@@ -1,9 +1,15 @@
 ```text
-    _______  ___________    __    ________  __  ______
-   / ____/ |/ / ____/   |  / /   /  _/ __ )/ / / / __ \
-  / __/  |   / /   / /| | / /    / // __  / / / / /_/ /
- / /___ /   / /___/ ___ |/ /____/ // /_/ / /_/ / _, _/
-/_____//_/|_\____/_/  |_/_____/___/_____/\____/_/ |_|
+ ______     __  __     ______     ______     __         __     ______     __  __     ______
+/\  ___\   /\_\_\_\   /\  ___\   /\  __ \   /\ \       /\ \   /\  == \   /\ \/\ \   /\  == \
+\ \  __\   \/_/\_\/_  \ \ \____  \ \  __ \  \ \ \____  \ \ \  \ \  __<   \ \ \_\ \  \ \  __<
+ \ \_____\   /\_\/\_\  \ \_____\  \ \_\ \_\  \ \_____\  \ \_\  \ \_____\  \ \_____\  \ \_\ \_\
+  \/_____/   \/_/\/_/   \/_____/   \/_/\/_/   \/_____/   \/_/   \/_____/   \/_____/   \/_/ /_/
+
+ ______   ______     ______     __  __     ______     _____
+/\  ___\ /\  __ \   /\  == \   /\ \/ /    /\  ___\   /\  __-.
+\ \  __\ \ \ \/\ \  \ \  __<   \ \  _"-.  \ \  __\   \ \ \/\ \
+ \ \_\    \ \_____\  \ \_\ \_\  \ \_\ \_\  \ \_____\  \ \____-
+  \/_/     \/_____/   \/_/ /_/   \/_/\/_/   \/_____/   \/____/
 ```
 
 This is a fork of Vie McCoy’s Excalibur hyperobject. It is mostly additive, supplementing the original with support for multiple, stable audiences with spirits that are accessible across surfaces. It differs slightly in its preferred file structure, recommending one that is friendly to more clamped permissions. The benefit of this slightly more opinionated invocation is compatibility with excalibur-moons, an outer hyperobject for running a broader network of Excalibur realms.
